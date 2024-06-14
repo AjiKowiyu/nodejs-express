@@ -3,13 +3,17 @@ const app       = express()
 const port      = 3000
 
 
+app.set('view engine', 'ejs')   //setting penggunaan template engine untuk express
+app.set('views', './view-ejs')  //setting penggunaan folder untuk menyimpan file .ejs
+
+
 app.get('/', (req,res)=>{
-    res.send('<h2>Hello World</h2><hr>')
+    res.render('index')
 })
 
 
 app.get('/profil', (req,res)=>{
-    res.send('<h1>Profil saya</h1>')
+    res.render('profil')
 })
 
 
