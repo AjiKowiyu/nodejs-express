@@ -17,6 +17,18 @@ app.get('/profil', (req,res)=>{
 })
 
 
+app.get('/pengalaman', (req,res)=>{
+    res.render('daftar-pengalaman', {
+        nama: 'Aji Kowiyu Uzumaki',
+        jenis_kelamin: 'L',
+        posisi: 'Sr. Programmer',
+        perusahaan: 'Agung Podomoro',
+        gaji: 9557000,
+        pajak: (this.gaji > 10000000) ? 'gaji anda kena pajak' : 'aman, gak perlu bayar pajak',
+    })
+})
+
+
 app.listen(port, ()=>{
     console.log(`App sudah siap, buka http://localhost:${port}`)
 })
