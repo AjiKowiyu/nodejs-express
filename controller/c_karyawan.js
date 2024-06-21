@@ -44,4 +44,27 @@ module.exports =
     },
 
 
+    edit: async (req,res)=>{
+        const id = req.params.id_karyawan
+        let dataview = {
+            detail_karyawan: await m_karyawan.get_satu_karyawan(id),
+            info_error: null
+        }
+        res.render('karyawan/form-edit', dataview)
+    },
+
+
+    proses_update: async (req,res)=>{
+        try {
+            let update = await m_karyawan.edit_karyawan(req)
+            if (update.affectedRows > 0) {
+                res.redirect('/karyawan?note=update-sukses')
+            }
+        } catch (error) {
+            console.log(error)
+            res.redirect('/karyawan?note=update-gagal')
+        }
+    },
+
+
 }

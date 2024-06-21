@@ -35,6 +35,8 @@ app.get('/karyawan', c_karyawan.index)
 app.get('/karyawan/detail/:id_karyawan', c_karyawan.detail)
 app.get('/karyawan/tambah', c_karyawan.tambah)
 app.post('/karyawan/proses-simpan', c_karyawan.proses_simpan)
+app.get('/karyawan/edit/:id_karyawan', c_karyawan.edit)
+app.post('/karyawan/proses-update/:id_karyawan', c_karyawan.proses_update)
 
 
 app.listen(port, ()=>{
